@@ -1,9 +1,7 @@
 package br.dev.hygino.entitiies;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -16,7 +14,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table
 public class Supplier {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank

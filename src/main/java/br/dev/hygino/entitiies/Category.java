@@ -1,8 +1,7 @@
 package br.dev.hygino.entitiies;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import br.dev.hygino.dtos.ResponseCategoryDto;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -13,17 +12,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(name = "tb_category")
 public class Category {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
+    @Size(min = 3, max = 80)
+    private String name;
 
     @NotBlank
     @Size(min = 3, max = 200)
     private String description;
 
-    @NotBlank
-    @Size(min = 3, max = 80)
-    private String name;
+    public ResponseCategoryDto toResponseCategoryDto() {
+        return new ResponseCategoryDto(id, name, description);
+    }
 }

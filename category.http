@@ -1,0 +1,26 @@
+### Listar categorias
+GET http://localhost:8080/api/v2/category
+
+### Buscar categoria
+GET http://localhost:8080/api/v2/category/3
+
+### Inserir categoria
+POST http://localhost:8080/api/v2/category
+Content-Type: application/json
+
+{
+    "name": "Eletrônicos",
+    "description": "Produtos eletrônicos e dispositivos tecnológicos"
+}
+
+### Atualizar categoria
+PUT http://localhost:8080/api/v2/category/1
+Content-Type: application/json
+
+{
+  "name": "Informática atualizada",
+  "description": "Computadores, periféricos e acessórios de informática"
+}
+
+### Remover categoria
+DELETE http://localhost:8080/api/v2/category/1
