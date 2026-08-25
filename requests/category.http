@@ -1,0 +1,25 @@
+### Listar categorias
+GET http://localhost:8080/api/category
+Accept: application/json
+
+### Criar categoria
+POST http://localhost:8080/api/category
+Content-Type: application/json
+
+{
+	"name": "Air Frier",
+    "description": "Panela de fritura elétrica"
+}
+
+### Atualizar categoria
+PUT http://localhost:8080/api/category/1
+Content-Type: application/json
+
+{
+	"name": "Air Frier Plus",
+    "description": "Panela de fritura elétrica atualizada"
+}
+
+### Excluir categoria
+DELETE http://localhost:8080/api/category/1
+Accept: application/json

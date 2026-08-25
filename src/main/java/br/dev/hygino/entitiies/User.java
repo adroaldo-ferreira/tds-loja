@@ -1,25 +1,36 @@
 package br.dev.hygino.entitiies;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import java.time.LocalDateTime;
+
+import br.dev.hygino.dtos.ResponseUserDto;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(name = "tb_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NotBlank
     @Size(max = 50)
+    @Column(unique = true)
     private String username;
 
     @NotBlank
@@ -37,6 +48,10 @@ public class User {
 
     private LocalDateTime lastLogin;
 
-    @NotBlank
+    @NotNull
     private LocalDateTime createdAt;
+
+    public ResponseUserDto toResponseDto() {
+        return new ResponseUserDto(id, username, password, fullName, accessLevel, isActive, lastLogin);
+    }
 }

@@ -14,3 +14,11 @@ INSERT INTO tb_category (name, description) VALUES ('Brinquedos', 'Brinquedos e 
 INSERT INTO tb_category (name, description) VALUES ('Beleza', 'Cosméticos, produtos de beleza e cuidados pessoais');
 INSERT INTO tb_category (name, description) VALUES ('Alimentos', 'Alimentos, bebidas e produtos alimentícios');
 
+INSERT INTO tb_user (access_level, created_at, full_name, is_active, last_login, password, username) VALUES (1, CURRENT_TIMESTAMP, 'Adroaldo Ferreira', TRUE, CURRENT_TIMESTAMP, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'hygino82');
+INSERT INTO tb_user (access_level, created_at, full_name, is_active, last_login, password, username) VALUES (1, CURRENT_TIMESTAMP, 'Administrador Sistema', TRUE, CURRENT_TIMESTAMP, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+INSERT INTO tb_user (access_level, created_at, full_name, is_active, last_login, password, username) VALUES (2, CURRENT_TIMESTAMP, 'Maria Silva Santos', TRUE, CURRENT_TIMESTAMP, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'maria.silva');
+INSERT INTO tb_user (access_level, created_at, full_name, is_active, last_login, password, username) VALUES (2, CURRENT_TIMESTAMP, 'Joao Pedro Oliveira', TRUE, CURRENT_TIMESTAMP, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'joao.oliveira');
+INSERT INTO tb_user (access_level, created_at, full_name, is_active, last_login, password, username) VALUES (3, CURRENT_TIMESTAMP, 'Ana Carolina Souza', TRUE, NULL, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ana.souza');
+INSERT INTO tb_user (access_level, created_at, full_name, is_active, last_login, password, username) VALUES (3, CURRENT_TIMESTAMP, 'Carlos Eduardo Ferreira', FALSE, NULL, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'carlos.ferreira');
+INSERT INTO tb_user (access_level, created_at, full_name, is_active, last_login, password, username) VALUES (3, CURRENT_TIMESTAMP, 'Juliana Pereira Lima', TRUE, CURRENT_TIMESTAMP, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'juliana.lima');
+INSERT INTO tb_user (access_level, created_at, full_name, is_active, last_login, password, username) VALUES (3, CURRENT_TIMESTAMP, 'Roberto Almeida', TRUE, CURRENT_TIMESTAMP, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'roberto.almeida');

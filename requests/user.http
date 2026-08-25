@@ -1,0 +1,34 @@
+### Listar usuários
+GET http://localhost:8080/api/user
+
+### Buscar usuário
+GET http://localhost:8080/api/user/1
+
+
+### Criar usuário
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "username": "operador01",
+  "password": "senha123",
+  "fullName": "João da Silva",
+  "accessLevel": "OPERATOR",
+  "isActive": true
+}
+
+
+### Atualizar usuário
+PUT http://localhost:8080/api/user/1
+Content-Type: application/json
+
+{
+  "username": "operador01",
+  "password": "senha123",
+  "fullName": "João da Silva",
+  "accessLevel": "OPERATOR",
+  "isActive": true
+}
+
+### Excluir usuário
+DELETE http://localhost:8080/api/user/2
