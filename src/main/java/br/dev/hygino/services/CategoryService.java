@@ -2,7 +2,7 @@ package br.dev.hygino.services;
 
 import br.dev.hygino.dtos.RequestCategoryDto;
 import br.dev.hygino.dtos.ResponseCategoryDto;
-import br.dev.hygino.entitiies.Category;
+import br.dev.hygino.entities.Category;
 import br.dev.hygino.exceptions.DatabaseException;
 import br.dev.hygino.exceptions.ResourceNotFoundException;
 import br.dev.hygino.repositories.CategoryRepository;
@@ -14,8 +14,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
 @Service
+@Validated
 @RequiredArgsConstructor
 public class CategoryService implements IService<RequestCategoryDto, ResponseCategoryDto> {
     private final CategoryRepository categoryRepository;

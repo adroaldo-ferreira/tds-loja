@@ -1,7 +1,8 @@
 package br.dev.hygino.repositories;
 
-import br.dev.hygino.entitiies.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.dev.hygino.entities.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 }

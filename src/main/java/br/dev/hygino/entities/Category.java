@@ -1,4 +1,4 @@
-package br.dev.hygino.entitiies;
+package br.dev.hygino.entities;
 
 import br.dev.hygino.dtos.ResponseCategoryDto;
 import jakarta.persistence.*;

@@ -1,6 +1,6 @@
 package br.dev.hygino.dtos;
 
-import br.dev.hygino.entitiies.AccessLevel;
+import br.dev.hygino.entities.AccessLevel;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;

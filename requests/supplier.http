@@ -1,0 +1,38 @@
+### Criar fornecedor
+POST http://localhost:8080/api/supplier
+Content-Type: application/json
+
+{
+    "name": "Atacadao Central de Bebidas Ltda",
+    "cnpj": "10.111.222/0001-33",
+    "contactName": "Marcos Vinicius",
+    "phoneNumber": "(46) 98811-2233",
+    "email": "marcos@atacadaobebidas.com.br",
+    "address": "Av. Luiz Antonio Faedo, 2000",
+    "city": "Francisco Beltrao",
+    "state": "PR"
+}
+
+### Listar fornecedores
+GET http://localhost:8080/api/supplier
+
+### Buscar fornecedor por ID
+GET http://localhost:8080/api/supplier/2
+
+### Atualizar fornecedor
+PUT http://localhost:8080/api/supplier/1
+Content-Type: application/json
+
+{
+    "name": "Atacadao Central de Bebidas Ltda",
+    "cnpj": "10.111.222/0001-33",
+    "contactName": "Marcos Vinicius",
+    "phoneNumber": "(46) 98811-2233",
+    "email": "marcos@atacadaobebidas.com.br",
+    "address": "Av. Luiz Antonio Faedo, 2000",
+    "city": "Francisco Beltrao",
+    "state": "PR"
+}
+
+### Excluir fornecedor
+DELETE http://localhost:8080/api/supplier/1
