@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:8080
+@employeeId = 1
+
+### Listar funcionários
+GET {{baseUrl}}/api/employee
+Accept: application/json
+
+### Buscar funcionário por ID
+GET {{baseUrl}}/api/employee/{{employeeId}}
+Accept: application/json
+
+### Criar funcionário
+POST {{baseUrl}}/api/employee
+Content-Type: application/json
+
+{
+  "name": "Carlos Mendes Silva",
+  "cpf": "797.960.929-80",
+  "position": "Vendedor",
+  "phoneNumber": "(46) 99911-2233",
+  "email": "carlos.mendes@empresa.com.br",
+  "admissionDate": "2022-03-15",
+  "salary": 2850.00,
+  "active": true,
+  "userId": 6
+}
+### Atualizar funcionário
+PUT {{baseUrl}}/api/employee/{{employeeId}}
+Content-Type: application/json
+
+{
+	"name": "João da Silva",
+	"email": "joao.silva@example.com",
+	"position": "Gerente"
+}
+
+### Excluir funcionário
+DELETE {{baseUrl}}/api/employee/{{employeeId}}
+Accept: application/json
