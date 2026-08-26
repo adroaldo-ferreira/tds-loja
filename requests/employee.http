@@ -29,9 +29,15 @@ PUT {{baseUrl}}/api/employee/{{employeeId}}
 Content-Type: application/json
 
 {
-	"name": "João da Silva",
-	"email": "joao.silva@example.com",
-	"position": "Gerente"
+  "name": "Carlos Mendes Silva",
+  "cpf": "797.960.929-80",
+  "position": "Vendedor",
+  "phoneNumber": "(46) 99911-2233",
+  "email": "carlos.mendes@empresa.com.br",
+  "admissionDate": "2022-03-15",
+  "salary": 2850.00,
+  "active": true,
+  "userId": 6
 }
 
 ### Excluir funcionário
