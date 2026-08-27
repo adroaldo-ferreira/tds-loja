@@ -5,7 +5,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,26 +35,28 @@ public class ProductController implements IController<RequestProductDto, Respons
     }
 
     @Override
-    public ResponseEntity<ResponseProductDto> update(Long id, RequestProductDto dto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseProductDto> update(@PathVariable Long id, @RequestBody @Valid RequestProductDto dto) {
+        logger.info("Update product with Id: " + id + " " + dto);
+        return ResponseEntity.status(200).body(productService.update(id, dto));
     }
 
     @Override
-    public ResponseEntity<ResponseProductDto> findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseProductDto> findById(@PathVariable Long id) {
+        return ResponseEntity.status(200).body(productService.findById(id));
     }
 
     @Override
+    @GetMapping
     public ResponseEntity<Page<ResponseProductDto>> findAll(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        return ResponseEntity.status(200).body(productService.findAll(pageable));
     }
 
     @Override
-    public ResponseEntity<Void> delete(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        productService.remove(id);
+        return ResponseEntity.noContent().build();
     }
 }

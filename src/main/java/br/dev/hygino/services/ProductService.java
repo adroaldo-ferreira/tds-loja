@@ -11,6 +11,7 @@ import br.dev.hygino.dtos.ResponseProductDto;
 import br.dev.hygino.entities.Category;
 import br.dev.hygino.entities.Product;
 import br.dev.hygino.entities.Supplier;
+import br.dev.hygino.exceptions.DatabaseException;
 import br.dev.hygino.exceptions.ResourceNotFoundException;
 import br.dev.hygino.repositories.CategoryRepository;
 import br.dev.hygino.repositories.ProductRepository;
@@ -58,27 +59,43 @@ public class ProductService implements IService<RequestProductDto, ResponseProdu
     }
 
     @Override
+    @Transactional
     public ResponseProductDto update(long id, RequestProductDto dto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        final var category = categoryRepository.findById(dto.categoryId())
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found!"));
+
+        final var supplier = supplierRepository.findById(dto.supplierId())
+                .orElseThrow(() -> new ResourceNotFoundException("Supplier not found!"));
+
+        try {
+            var product = productRepository.getReferenceById(id);
+
+            dtoToEntity(dto, product, category, supplier);
+
+            product = productRepository.save(product);
+            return product.toResponseProduct();
+        } catch (Exception e) {
+            throw new DatabaseException("Can not save this product!");
+        }
     }
 
+    @Transactional(readOnly = true)
     @Override
     public ResponseProductDto findById(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return productRepository.findById(id)
+                .map(Product::toResponseProduct)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found!"));
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Page<ResponseProductDto> findAll(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        return productRepository.findAll(pageable)
+                .map(Product::toResponseProduct);
     }
 
     @Override
     public void remove(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        productRepository.deleteById(id);
     }
-
 }
