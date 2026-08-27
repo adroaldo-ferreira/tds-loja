@@ -1,4 +1,5 @@
--- =====================================================================
+
+!Not-- =====================================================================
 --  BANCO DE DADOS - NEUFMODAS (Sistema de Controle de Estoque)
 --  Compatível com MySQL 5.7+ / 8.0+
 --  Módulos: Login, Dashboard, Inventário, Funcionários, Fornecedores, Alertas

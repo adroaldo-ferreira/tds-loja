@@ -1,6 +1,8 @@
 package br.dev.hygino.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -10,21 +12,27 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tb_supplier")
-@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Supplier {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -69,6 +77,9 @@ public class Supplier {
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    @OneToMany
+    private final List<Product> products = new ArrayList<>();
 
     public ResponseSupplierDto toResponseSupplier() {
         return new ResponseSupplierDto(

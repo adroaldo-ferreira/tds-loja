@@ -1,0 +1,18 @@
+### Criar produto
+POST http://localhost:8080/api/product
+Content-Type: application/json
+
+{
+  "name": "Torresmo",
+  "code":"tor001",
+  "description": "Torresmo frito",
+  "categoryId":1,
+  "supplierId":2,
+  "size":"XL",
+  "color":"BLUE",
+  "purchasePrice":12.45,
+  "salesPrice":18.23,
+  "minimalStock":3,
+  "stock":10,
+  "isActive": true
+}
