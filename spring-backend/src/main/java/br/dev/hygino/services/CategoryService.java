@@ -31,14 +31,14 @@ public class CategoryService implements IService<RequestCategoryDto, ResponseCat
         return entity.toResponseCategoryDto();
     }
 
-    private void dtoToEntity(RequestCategoryDto dto, @Valid Category entity) {
+    private void dtoToEntity(RequestCategoryDto dto, Category entity) {
         entity.setName(dto.name());
         entity.setDescription(dto.description());
     }
 
     @Override
     @Transactional
-    public ResponseCategoryDto update(long id, @Valid RequestCategoryDto dto) {
+    public ResponseCategoryDto update(long id, RequestCategoryDto dto) {
         try {
             Category entity = categoryRepository.getReferenceById(id);
             dtoToEntity(dto, entity);

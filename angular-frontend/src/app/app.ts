@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CategoryForm } from "./page/category-form/category-form";
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CategoryForm],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
