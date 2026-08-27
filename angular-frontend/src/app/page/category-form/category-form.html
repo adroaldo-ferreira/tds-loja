@@ -5,3 +5,28 @@
   <input type="text" alt="Informe o nome" [(ngModel)]="description" id="descricao">
   <input type="button" value="Salvar" class="btn btn-primary" (click)="salvar()">
 </div>
+
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (cat of categorias; track cat.id) {
+        <tr>
+          <th scope="row">{{ cat.id }}</th>
+          <td>{{ cat.name }}</td>
+          <td>{{ cat.description }}</td>
+          <td>
+            <button class="btn btn-sm btn-danger">Excluir</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

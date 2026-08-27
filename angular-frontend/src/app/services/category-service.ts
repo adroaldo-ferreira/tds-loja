@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RequestCategory, ResponseCategory } from '../../types/category-types';
+import { CategoryPage, RequestCategory, ResponseCategory } from '../../types/category-types';
 import { BASE_URL } from '../base-url';
 
 
@@ -11,5 +11,21 @@ export class CategoryService {
 
   save(dto: RequestCategory): Observable<ResponseCategory> {
     return this.http.post<ResponseCategory>(`${BASE_URL}/category`, dto);
+  }
+
+  update(id: number, dto: RequestCategory): Observable<ResponseCategory> {
+    return this.http.put<ResponseCategory>(`${BASE_URL}/category/${id}`, dto);
+  }
+
+  find(id: number): Observable<ResponseCategory> {
+    return this.http.get<ResponseCategory>(`${BASE_URL}/category/${id}`);
+  }
+
+  findAll() {
+    return this.http.get<CategoryPage>(`${BASE_URL}/category`);
+  }
+
+  delete(id: number) {
+    this.http.delete<void>(`${BASE_URL}/category/${id}`);
   }
 }
