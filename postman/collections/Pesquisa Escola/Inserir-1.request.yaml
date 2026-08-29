@@ -1,5 +1,0 @@
-$kind: http-request
-name: Inserir
-url: http://localhost:8080/api/respostas/estatisticas
-method: GET
-order: 427258045825199
