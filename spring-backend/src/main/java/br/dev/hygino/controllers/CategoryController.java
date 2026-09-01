@@ -38,7 +38,7 @@ public class CategoryController implements IController<RequestCategoryDto, Respo
     }
 
     @Override
-    @GetMapping
+    @GetMapping(produces = "application/json;charset=UTF-8")
     public ResponseEntity<Page<ResponseCategoryDto>> findAll(Pageable pageable) {
         return ResponseEntity.ok(categoryService.findAll(pageable));
     }

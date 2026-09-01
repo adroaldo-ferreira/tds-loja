@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoryPage, RequestCategory, ResponseCategory } from '../../types/category-types';
@@ -21,8 +21,11 @@ export class CategoryService {
     return this.http.get<ResponseCategory>(`${BASE_URL}/category/${id}`);
   }
 
-  findAll() {
-    return this.http.get<CategoryPage>(`${BASE_URL}/category`);
+  findAll(page = 0, size = 20): Observable<CategoryPage> {
+    const params = new HttpParams()
+      .set('page', page)
+      .set('size', size);
+    return this.http.get<CategoryPage>(`${BASE_URL}/category`, { params });
   }
 
   delete(id: number) {
