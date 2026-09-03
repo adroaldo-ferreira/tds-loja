@@ -1,0 +1,122 @@
+<div class="container py-4">
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+      <h3 class="mb-4">Cadastro de fornecedor</h3>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Nome do fornecedor</label>
+          <input type="text" class="form-control" placeholder="Nome do fornecedor" [(ngModel)]="name" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">CNPJ</label>
+          <input type="text" class="form-control" placeholder="CNPJ" [(ngModel)]="cnpj" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Nome do contato</label>
+          <input type="text" class="form-control" placeholder="Nome do contato" [(ngModel)]="contactName" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Telefone</label>
+          <input type="text" class="form-control" placeholder="Telefone" [(ngModel)]="phoneNumber" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="Email" [(ngModel)]="email" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Cidade</label>
+          <input type="text" class="form-control" placeholder="Cidade" [(ngModel)]="city" required />
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Endereço</label>
+          <input type="text" class="form-control" placeholder="Endereço" [(ngModel)]="address" required />
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Estado</label>
+          <select class="form-select" [(ngModel)]="state" required>
+            <option value="">Selecione um estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="d-grid mt-4">
+        <button type="button" class="btn btn-primary btn-lg" (click)="saveSupplier()">Salvar Fornecedor</button>
+        <button type="button" class="btn btn-warning btn-lg" (click)="clearForm()">Limpar Formulário</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Fornecedor</th>
+        <th scope="col">CNPJ</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (sup of suppliers; track sup.id) {
+      <tr>
+        <td class="text-muted">{{sup.id}}</td>
+        <td class="fw-medium">{{sup.name}}</td>
+        <td class="text-muted">{{sup.cnpj}}</td>
+        <td class="text-muted">{{sup.phoneNumber}}</td>
+        <td class="text-muted">{{sup.email}}</td>
+        <td class="text-muted">{{sup.city}}</td>
+        <td class="text-muted">{{sup.state}}</td>
+        <td>
+          <button class="btn btn-sm btn-outline-secondary me-1" (click)="findSupplierById(sup.id)"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-sm btn-outline-danger" (click)="removeSupplier(sup.id)"><i class="bi bi-trash"></i></button>
+        </td>
+      </tr>
+      } @empty {
+      <tr>
+        <td colspan="8" class="text-center py-5 text-muted">Nenhum fornecedor encontrado</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+</div>

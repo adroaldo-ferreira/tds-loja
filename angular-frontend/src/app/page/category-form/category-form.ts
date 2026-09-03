@@ -33,7 +33,7 @@ export class CategoryForm implements OnInit {
       next: (response) => {
         this.page = response;
         this.categories = response.content;
-        console.log('API:', response.page.totalElements, 'itens');
+        console.log('Category API:', response.page.totalElements, 'itens');
       },
       error: (err) => console.error(err),
     });
